@@ -1,0 +1,59 @@
+prompt-card {
+  display: flex;
+  min-width: 0;
+}
+prompt-card > .prompt-card {
+  width: 100%;
+}
+prompt-card .prompt-card .token-estimate {
+  font-size: 10px;
+  margin-bottom: 18px;
+}
+prompt-card .prompt-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+}
+prompt-card .prompt-card h3 {
+  margin: 0 0 13px;
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+prompt-card .prompt-card p {
+  color: var(--muted);
+  font: 12px/1.8 var(--mono);
+  margin: 0 0 22px;
+  overflow-wrap: anywhere;
+}
+prompt-card .delete-button {
+  align-self: flex-end;
+  margin-top: auto;
+  padding: 6px 9px;
+  border: 1px solid #bcc6d0;
+  border-radius: 5px;
+  background: transparent;
+  color: #535f6c;
+  font-size: 11px;
+}
+prompt-card .delete-button:hover {
+  color: #b42332;
+  border-color: #ce8890;
+  background: #fff0f1;
+}
+prompt-card .model-badge {
+  align-self: flex-start;
+  max-width: 100%;
+  margin: 0 0 14px;
+  padding: 4px 8px;
+  border: 1px solid var(--accent-border);
+  border-radius: 5px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: 10px/1.6 var(--mono);
+  overflow-wrap: anywhere;
+}

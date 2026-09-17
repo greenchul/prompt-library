@@ -1,0 +1,66 @@
+prompt-collection {
+  display: block;
+  min-width: 0;
+}
+prompt-collection .collection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 32px;
+  margin-bottom: 17px;
+}
+prompt-collection .collection-heading .eyebrow {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+prompt-collection .prompt-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+prompt-collection .empty-state {
+  min-height: 340px;
+  border: 1px dashed #bdc7d1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+}
+prompt-collection .empty-icon {
+  color: var(--accent);
+  font: 24px var(--mono);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 22px;
+}
+prompt-collection .empty-state h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+prompt-collection .empty-state p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 265px;
+  line-height: 1.8;
+  margin: 0;
+}
+@media (max-width: 950px) {
+  prompt-collection .prompt-list {
+    grid-template-columns: 1fr;
+  }
+  prompt-collection .collection-heading .eyebrow {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  prompt-collection .empty-state {
+    min-height: 240px;
+  }
+}
