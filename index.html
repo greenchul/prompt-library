@@ -1,51 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f6f8fa">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f8fa" />
     <title>Prompt Library</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">&gt;_</span> prompt<span class="brand-muted">/library</span></a>
-      <span class="storage-label"><span aria-hidden="true"></span> LOCAL STORAGE</span>
+      <a class="brand" href="index.html"
+        ><span class="brand-icon" aria-hidden="true">&gt;_</span> prompt<span
+          class="brand-muted"
+          >/library</span
+        ></a
+      >
+      <span class="storage-label"
+        ><span aria-hidden="true"></span> LOCAL STORAGE</span
+      >
     </header>
 
     <main>
-      <div class="workspace">
-        <section class="editor" aria-labelledby="editor-title">
-          <div class="panel-heading"><span class="code-mark" aria-hidden="true">&lt;/&gt;</span><h2 id="editor-title">New prompt</h2></div>
-          <form id="prompt-form">
-            <label for="prompt-title">Title</label>
-            <input id="prompt-title" name="title" placeholder="e.g. Code review companion" required maxlength="120">
-            <label for="prompt-model">Model (optional)</label>
-            <div class="model-field">
-              <input type="text" id="prompt-model" name="model" role="combobox" aria-autocomplete="list" aria-controls="model-suggestions" aria-expanded="false" autocomplete="off" placeholder="Select or enter a model">
-              <ul id="model-suggestions" class="model-suggestions" role="listbox" aria-label="Suggested models" hidden></ul>
-            </div>
-            <label for="prompt-content">Prompt content</label>
-            <textarea id="prompt-content" name="content" placeholder="Write your prompt here…" rows="9" required></textarea>
-            <label class="code-option" for="prompt-is-code"><input type="checkbox" id="prompt-is-code" name="isCode"> Contains code (1.3× token estimate)</label>
-            <button class="save-button" type="submit"><span aria-hidden="true">+</span> Save prompt</button>
-            <p class="form-note">Saved in this browser. Ready when you are.</p>
-          </form>
-        </section>
-
-        <section class="collection" aria-labelledby="collection-title">
-          <div class="collection-heading"><h2 id="collection-title">Saved prompts</h2><span class="eyebrow">YOUR COLLECTION</span></div>
-          <div id="prompt-list" class="prompt-list"></div>
-          <div id="empty-state" class="empty-state">
-            <span class="empty-icon" aria-hidden="true">{ }</span>
-            <h3>A clean slate.</h3>
-            <p>Save your first prompt and give your next idea a head start.</p>
-          </div>
-        </section>
-      </div>
-      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <prompt-library></prompt-library>
     </main>
-    <footer><span>Built for your next great idea.</span><span class="footer-code" aria-hidden="true">[ think. write. repeat. ]</span></footer>
+    <footer>
+      <span>Built for your next great idea.</span
+      ><span class="footer-code" aria-hidden="true"
+        >[ think. write. repeat. ]</span
+      >
+    </footer>
   </body>
 </html>

@@ -1,0 +1,103 @@
+prompt-editor {
+  display: block;
+  min-width: 0;
+}
+prompt-editor .editor {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+prompt-editor .panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 21px 24px;
+  border-bottom: 1px solid var(--border);
+}
+prompt-editor .code-mark {
+  color: var(--accent);
+  font: 16px var(--mono);
+}
+prompt-editor form {
+  padding: 24px;
+}
+prompt-editor label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #39434f;
+}
+prompt-editor input,
+prompt-editor textarea,
+prompt-editor select {
+  display: block;
+  width: 100%;
+  background: #f6f8fa;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  padding: 12px;
+  color: #20252b;
+  margin-bottom: 24px;
+  font: 12px/1.7 var(--mono);
+}
+prompt-editor textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+prompt-editor .code-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+prompt-editor .code-option input {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--accent);
+}
+prompt-editor input::placeholder,
+prompt-editor textarea::placeholder {
+  color: #65707d;
+  opacity: 1;
+}
+prompt-editor input:focus,
+prompt-editor textarea:focus,
+prompt-editor select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+prompt-editor .save-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 650;
+  transition: background 150ms;
+}
+prompt-editor .save-button:hover {
+  background: var(--accent-gradient-hover);
+}
+prompt-editor .save-button span {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+}
+prompt-editor .form-note {
+  text-align: center;
+  color: var(--muted);
+  font: 10px/1.6 var(--mono);
+  margin: 15px 0 0;
+}
