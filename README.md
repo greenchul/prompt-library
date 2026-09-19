@@ -4,13 +4,14 @@ A browser-local prompt library built with native Web Components and JavaScript m
 
 ## Run
 
-Serve the project over HTTP (module scripts require a server):
+Use Node.js 24 or later. Install the pinned development dependencies, then start the static HTTP server (module scripts require HTTP):
 
 ```sh
-python3 -m http.server 8000
+npm ci
+npm start
 ```
 
-Open http://localhost:8000. Saved prompts remain under `prompt-library.prompts` in localStorage. Use the same browser and origin (including port) to access existing data.
+Open http://127.0.0.1:8000. The server binds to the local machine and disables caching so edits appear immediately. Stop it with Ctrl+C. Saved prompts remain under `prompt-library.prompts` in localStorage. Use the same browser, protocol, hostname, and port to access existing data. For example, `localhost:8000`, `127.0.0.1:8000`, and Live Server on port 5500 have separate storage. If you previously used `http://localhost:8000`, keep using that address to access those prompts.
 
 ## Structure
 
@@ -28,7 +29,7 @@ The library writes storage before committing state or clearing the editor. Faile
 
 ## Testing and formatting
 
-Use Node.js 24 or later and Python 3. Install the pinned development dependencies and Playwright's Chromium browser:
+Use Node.js 24 or later. Install the pinned development dependencies and Playwright's Chromium browser:
 
 ```sh
 npm ci
@@ -48,7 +49,7 @@ npm run test:e2e:ui   # Interactive browser test runner
 npm run test:e2e:report # Open the most recent HTML report
 ```
 
-Playwright automatically starts and stops a Python HTTP server at `http://127.0.0.1:8766`. Leave that dedicated port free; the runner deliberately refuses to reuse an existing server. Each test gets a fresh browser context and storage. Tests do not use your normal browser profile or saved prompts. Reloads within a test retain its storage.
+Playwright automatically starts and stops the Node HTTP server via `npm run serve:test` at `http://127.0.0.1:8766`. Leave that dedicated port free; the runner deliberately refuses to reuse an existing server. Each test gets a fresh browser context and storage. Tests do not use your normal browser profile or saved prompts. Reloads within a test retain its storage.
 
 The Node tests cover storage normalization/failure handling, model matching, and token calculations. Tests in `tests/e2e/` cover creation and reload, autocomplete and custom models, keyboard ratings and focus, deletion, storage failures, literal text rendering, reconnection, and a narrow viewport. They replace the old manual `tests/browser.html` harness.
 
@@ -69,4 +70,4 @@ GitHub Actions runs formatting, Node tests, and Chromium tests on pushes and pul
 
 Coverage is Chromium-only. The narrow-viewport test is not a visual regression suite, and automated keyboard checks do not replace a full accessibility or screen-reader audit.
 
-Development tools are not required to serve the application.
+The npm server commands require the development dependencies installed by `npm ci`. The application itself remains static with no runtime dependencies or build step; Live Server or another static HTTP server can also serve it. Python is no longer required for development or CI.

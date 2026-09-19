@@ -14,7 +14,7 @@ export default defineConfig({
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: {
-    command: "python3 -m http.server 8766 --bind 127.0.0.1",
+    command: "npm run serve:test",
     url: "http://127.0.0.1:8766/index.html",
     reuseExistingServer: false,
   },
