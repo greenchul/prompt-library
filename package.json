@@ -9,10 +9,13 @@
     "test": "node --test tests/logic.test.js",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:report": "playwright show-report"
+    "test:e2e:report": "playwright show-report",
+    "start": "http-server . -a 127.0.0.1 -p 8000 -c-1",
+    "serve:test": "http-server . -a 127.0.0.1 -p 8766 -c-1"
   },
   "devDependencies": {
     "@playwright/test": "1.55.1",
+    "http-server": "14.1.1",
     "prettier": "3.9.7"
   }
 }

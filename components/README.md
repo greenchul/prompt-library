@@ -58,10 +58,11 @@ When adding a component, import it from the component that creates it. Merely ad
 Serve the project over HTTP from the repository root:
 
 ```sh
-python3 -m http.server 8000
+npm ci
+npm start
 ```
 
-Then open http://localhost:8000. Opening `index.html` directly with a `file:` URL is not the supported workflow for these module scripts.
+Then open http://127.0.0.1:8000. This runs the Node static server with caching disabled. Live Server is also supported. Saved prompts are tied to the browser origin, so retain your previous hostname and port to access existing data. Opening `index.html` directly with a `file:` URL is not the supported workflow for these module scripts.
 
 ### Component responsibilities and interfaces
 
@@ -358,7 +359,7 @@ The owner would decide what to do with that request. Merely emitting an event do
 
 ## 9. Testing components
 
-From the repository root, install the pinned tools with `npm ci` and the browser with `npx playwright install chromium`. Node.js 24+ and Python 3 are required. Playwright 1.55.1 is pinned for the development machine's macOS 13 compatibility; see the root README before upgrading it.
+From the repository root, install the pinned tools with `npm ci` and the browser with `npx playwright install chromium`. Node.js 24+ is required. Playwright 1.55.1 is pinned for the development machine's macOS 13 compatibility; see the root README before upgrading it.
 
 ```sh
 npm test                 # DOM-independent logic tests
@@ -367,7 +368,7 @@ npm run test:e2e:ui       # Interactive test runner
 npm run test:e2e:report   # Last HTML report
 ```
 
-Playwright starts a dedicated local server on port 8766 and creates a fresh browser context per test. No normal browser profile is touched. The suite in `tests/e2e/` replaces `tests/browser.html` and runs against the actual application entry page.
+Playwright automatically runs `npm run serve:test` to start a dedicated Node HTTP server on `127.0.0.1:8766` with caching disabled and creates a fresh browser context per test. No normal browser profile is touched. The suite in `tests/e2e/` replaces `tests/browser.html` and runs against the actual application entry page.
 
 For a new component, add tests to an appropriate `*.spec.js` file under `tests/e2e/`. Import `test` and `expect` from `@playwright/test`, navigate with `await page.goto("/")`, then interact through accessible roles and labels. Use awaited assertions so Playwright waits for the expected state. Exercise keyboard navigation and focus when the component is interactive, and verify both success and failure outcomes when it requests persistence.
 
